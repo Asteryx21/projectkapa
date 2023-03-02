@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.score {
+  font-family: monospace;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  margin: 1rem;
+  position: relative;
+  transition: opacity 0.2s;
+}
+#play-again-btn {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  margin-left: -50px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #111;
+	border: 5px double #fff; 
+	border-radius: 14px;
+	padding: 8px 10px;  
+  outline: none;
+  letter-spacing: .05em;
+  cursor: pointer;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s, background-color 0.2s;
+}
+#play-again-btn:hover {
+  background-color: #333;
+}
+#play-again-btn:active {
+  background-color: #555;
+}
+#play-again-btn.play-again-btn-entrance {
+  opacity: 1;
+  transform: translateX(6rem);
+}
+
+/* Game-Box */
+.bag{ 
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  margin-left:auto;
+  margin-right: auto;
+  /*margin-top: 1.5em; */
+  width: 80%;
+  height: 40em;
+  border-radius: 5em;
+  border: 3px solid #32cdb9;
+}
+.bag img{
+
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}
+
+
+/* Draggable items */
+.draggable {
+  position: absolute;
+  cursor: move;
+  transition: opacity 0.2s;
+}
+.draggable img{
+  
+  height: auto;
+  width: 4em;
+}
+.draggable2 img{
+  height: auto;
+  width: 3em;
+}
+.draggable3 img{
+  height: auto;
+  width: 2em;
+}
+
+.draggable1 {
+  bottom: 0.5em;
+  right:10em;
+}
+.draggable2 {
+  bottom: 7em;
+  right:15em;
+}
+.draggable3 {
+  bottom: 0.5em;
+  right:21em;
+}
+.draggable4 {
+  bottom: 0.5em;
+  right:30em;
+}
+.draggable5 {
+  bottom: 0.5em;
+  right:40em;
+}
+.draggable6 {
+  bottom: 1em;
+  right:50em;
+}
+.draggable7 {
+  bottom: 1em;
+  right:60em;
+}
+
+.draggable:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+
+/* Droppable items */
+.droppable {
+  position: absolute;
+}
+
+.droppable1 {
+  top: 20rem;
+  left: 1rem;
+}
+
+.droppable2 {
+  top: 20rem;
+  left: 10rem;
+}
+.droppable3 {
+  top: 20rem;
+  left: 19rem;
+}
+.droppable4 {
+  top: 20rem;
+  left: 28rem;
+}
+
+
+
+/* Drag and Drop Related Styling */
+
+.droppable-hover {
+  transform: scale(1.1);
+}
+
+.dragged {
+  user-select: none;
+  opacity: 0;
+  cursor: default;
+}
+.draggable.dragged:hover {
+  opacity: 0.1;
+}
+
+.reseted{
+  opacity: 1;
+}
+
+
+@media(min-width:1605px) and (max-width:2999px){
+  .bag{
+    background-size: cover;
+    width: auto;
+  }
+}

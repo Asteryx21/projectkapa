@@ -1,0 +1,315 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth; 
+}
+/* map features */
+html, body, #map{
+  z-index: 0;
+  position: absolute;
+ /* height: 52.8em; */
+  height: 100%;
+  width: 100%;
+
+}
+
+#sidebar{
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.rep_img{
+  border-radius: 1.5em;
+  position: absolute;
+  left: 0.5em;
+  bottom: 0.5em;
+  width: 14em;
+  height: 10em;
+}
+.rep_img:hover{
+  cursor: pointer;
+  transform: scale(1.075);
+  transition: 0.3s ease-in;
+}
+
+.cluster{
+  background-color: red;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.leaflet-control-layers-toggle {
+  width: 3em !important;
+  height: 3em !important;
+  /* background-image: url('../imgs/layers.png') !important;
+  background-color: transparent !important;
+  width: 5em !important;
+  height: 5em !important;  */
+}
+.leaflet-touch .leaflet-bar a{
+  width: 3em !important;
+  height: 3em !important;
+}
+.leaflet-control-locate a .leaflet-control-locate-location-arrow{
+  margin:0.8em !important;
+}
+/* <a href="https://www.flaticon.com/free-icons/layers" title="layers icons">Layers icons created by Freepik - Flaticon</a> */
+
+/* TIPS MODAL + BUTTONS */
+#tips{
+  background-color: white;
+  color:black;
+  border-radius: 1em;
+  z-index: 1;
+  position:absolute;
+  right:0.2em;
+  bottom: 0.2em;
+  font-size: 4em;
+  cursor:pointer;
+}
+
+#tips:hover{
+  color: green;
+}
+
+.modalTips {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: auto;
+  width: 35em;
+  padding: 1.3rem;
+  height: auto;
+  position:absolute;
+  right:5em;
+  left: 5em;
+  top: 15em;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+.tips_btn {
+  width:20%;
+  margin-left: auto;
+  margin-right:auto;
+  font-weight: 700;
+  padding: 0.5em;
+  background: rgb(42, 206, 78);
+  color: #fff;
+  border-radius: 10px;   
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+.tips_btn:hover{
+  background: rgb(28, 146, 54);
+}
+
+/*  Report area form*/
+
+.center {
+  z-index: 1;
+  position:absolute;
+  right:5em;
+  left: 5em;
+  top: 10em;
+  margin: auto;
+  width: 50%;
+  padding: 1em;
+  background-color: azure;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 35em;
+  padding: 0.2rem;
+  height: auto;
+  position:absolute;
+  right:5em;
+  left: 5em;
+  top: 9em;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  z-index: 2;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+.modal .flex {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal{
+  height: 70%;
+}
+#enlarged_img{
+  width:100%;
+  height: 100%;
+  object-fit: contain;
+}
+.btn-close {
+  position: absolute;
+  top:0;
+  right:0;
+  transform: translate(10px, -20px);
+  padding: 0.5rem 0.7rem;
+  background: rgb(42, 206, 78);
+  color: #fff;
+  border-radius: 50%;
+  transition: background .2s ease-in-out;
+}
+.btn-close:hover{
+  background: rgb(28, 146, 54);
+}
+
+.hideform {
+  display: none;
+}
+.hidden{
+  display: none;
+}
+.modalLogin {
+  margin: auto;
+  width: 20em;
+  padding: 1.3rem;
+  height: auto;
+  position:absolute;
+  right:5em;
+  left: 5em;
+  top: 15em;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  z-index: 2;
+}
+.ok_btn {
+  width:20%;
+  margin-left: 6.5em;
+  margin-top: 1em;
+  font-weight: 700;
+  padding: 0.5em;
+  text-align: center;
+  background: rgb(42, 206, 78);
+  color: #fff;
+  border-radius: 10px;   
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+.ok_btn:hover{
+  background: rgb(28, 146, 54);
+}
+
+/* RESPONSIVE  (min-width:858)*/
+@media (min-height:714px){
+  html, body, #map{
+    height: 96.7%;
+  }
+}
+@media (min-height:859px){
+  html, body, #map{
+    height: 97%;
+  }
+}
+@media(max-width:878px)  {
+  nav ul li{
+
+    margin-right: 0em !important;
+  }
+}
+@media (max-width: 637px){
+  .modal{
+      width:90%;
+      right:1em;
+      left:1em;
+  }
+  .modalTips{
+    width:90%;
+    top: 7em;
+    right:1em;
+    left:1em;
+  }
+}
+@media screen and (max-width:375px) {
+
+  .modalLogin{
+      width:80%;
+      padding-right: 1em;
+      right:1em;
+      left:1em;
+  }
+  .modalLogin h3{
+    margin:auto;
+    text-align: center;
+  }
+
+}
+@media screen and (max-width:460px) {
+
+  .modalLogin{
+      width:80%;
+      right:1em;
+      left:1em;
+  }
+
+  html, body, #map{
+    height: 96%;
+  }
+
+  .center{
+    right: 0em;
+    width:90%;
+    height:auto;
+    padding: 0.5em;
+    left:0;
+  }
+  #subject{
+    height:10em !important;
+  }
+
+  input[type=file]{
+    padding: 1px !important;
+    
+  }
+}
+@media screen and (max-width:400px){
+  #sidebar{
+    padding-top: 3em;
+    padding-left:0.5em;
+  }
+  .rep_img{
+    border-radius: 1.5em;
+    position: absolute;
+    left: 0.5em;
+    bottom: 0.5em;
+    width: 10em;
+    height: 10em;
+  }
+  
+}
+
