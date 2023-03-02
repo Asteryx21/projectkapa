@@ -2,6 +2,7 @@
 ### !!! Work in progress !!! 
 Project ΚαΠα is an environmental volunteer team based on Patras, Greece that does clean-ups in polluted areas.
 <br>
+![App image](https://github.com/Asteryx21/projectkapa/blob/main/Screenshot_1.png?raw=true)
 <br>
 The purpose of this web application is to inform the people about our team and our causes but also to inspire them to join us.
 <br>
