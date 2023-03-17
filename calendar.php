@@ -8,7 +8,7 @@ if (isset($_SESSION['email'])) {
     if($run_Sql){
         $fetch_info = mysqli_fetch_assoc($run_Sql);
         $user_id = $fetch_info['id'];
-    
+        $logged_user_type = $fetch_info["user_type"];
     }
 }
 if (isset($_POST['interested'])){
@@ -55,10 +55,9 @@ $draseis = mysqli_query($conn, "SELECT * FROM draseis");
     <link rel="stylesheet" href="styles/calendar.css">
     <link rel="stylesheet" href="styles/navbar.css" />  
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="backbutton.js" defer></script>
 </head>
 <body>
     <nav>
@@ -81,7 +80,6 @@ $draseis = mysqli_query($conn, "SELECT * FROM draseis");
         ?>
         </ul>
     </nav>
-    
     <div id='calendar'></div>
     <?php if (isset($_SESSION['email'])) { ?>
     <div id='placeholder'>

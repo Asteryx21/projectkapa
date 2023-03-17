@@ -17,8 +17,18 @@
     <link rel ="stylesheet" href ="styles/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.EasyButton/2.4.0/easy-button.min.css"/>
+   
+    <script src="backbutton.js" defer></script>
+    <style>
+    .leaflet-bar button {
+        height: 4em !important; /* easyButton's height default */
+        width: 4.3em !important;  /*  easyButton's width default */
+    }
+    </style>
 </head>
 <body>
     <nav>
@@ -93,6 +103,7 @@
     <div class="overlay hideform"></div> 
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.EasyButton/2.4.0/easy-button.min.js"></script>
     <script src="L.Control.Locate.min.js"></script>
     <script src="leaflet.markercluster.js"></script>
     <script src="L.Control.Sidebar.js"></script>

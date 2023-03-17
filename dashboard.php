@@ -13,8 +13,32 @@
     <link rel="stylesheet" href="styles/navbar.css"/>
     <link rel="stylesheet" href="styles/dashboard.css"/>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js"></script>
+
+    <!-- moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Font awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/solid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/fontawesome.min.js"></script>
+
+    <!-- Tempus dominus -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempus-dominus/6.2.10/js/tempus-dominus.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tempus-dominus/6.2.10/css/tempus-dominus.min.css" rel="stylesheet" />
+
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1"></script>
+    <script src="backbutton.js" defer></script>
+    <style>
+        .alert {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -41,10 +65,50 @@
         <h1>Welcome <?php echo $fetch_info['name'];?></h1>
         <a href="logout-user.php">Logout</a>
         <?php if($logged_user_type=='Admin'){?>
-            <p></p>
+            <button class="btn"id='addevent'>Προσθήκη δράσης στο ημερολόγιο</button>
         <?php }?>
     </div>
-    <div class="chartbox">
+
+    <!-- Modal -->
+    <div class="modal" id="exampleModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="alert alert-success text-center"></div> 
+            <form id="form" action="" method="POST">
+            <!-- Input for Title -->
+            <div class="form-group">
+                <label for="inputTitle">Τύπος</label>
+                <input type="text" class="form-control" name="inputTitle" id="inputTitle" placeholder="πχ. Δράση, ενημέρωση, συγκέντρωση ή κάποιο άλλο event" required>
+            </div>
+            <!-- Input for Datepicker -->
+            <div class="form-group">
+                <label for="inputDate">Ημερομηνία</label>
+                <div class="input-group date" id="datepicker">
+                    <input type="text" class="form-control" name="inputDate" id="inputDate"  placeholder="Χρόνος-μήνας-μέρα" required readonly>
+                    
+                </div>
+            </div>
+            <!-- Input for Description -->
+            <div class="form-group">
+                <label for="inputDescription">Περιγραφή</label>
+                <textarea class="form-control" name="inputDescription" id="inputDescription" rows="3" placeholder="Μίρκη περιγραφή" required></textarea  >
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                <input class="btn btn-primary submitBtn" name="up_event" type="submit" value="Upload" >
+            </div>
+            </form>
+        </div>
+    
+
+        </div>
+    </div>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <div class="chartbox ">
         <?php 
         $query = "SELECT d.title, d.description, d.start, d.url 
         FROM draseis d
@@ -54,7 +118,7 @@
         if ($result->num_rows > 0) {
         ?>
         <table>
-        <caption>Προσεχώμενα events που ενδιαφέρεστε!</caption>
+        <h3>Έχετε δηλώσει ενδιαφέρων</h3>
         <thead>
             <tr>
             <th scope="col">Τυπος</th>
@@ -92,7 +156,7 @@
     <div class='chartbox'>
         <canvas id="myChart"></canvas>  
     </div>
-    
+   
     <script src="dashboard.js"></script>
 </body>
 </html>

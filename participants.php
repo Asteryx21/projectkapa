@@ -2,11 +2,10 @@
 @include 'dbconnection.php';
 require_once 'controllerUserData.php';
 @include 'logged_user.php';
-///////////////////////////// WITH THE PRECIOUS HELP OF CHAT GPT //////////////////////////////////////
-// Initialize an empty array
+
+
 $results_array = array();
 
-// Run the SQL query
 $sql = "SELECT usertable.name, COUNT(*) as count FROM usertable INNER JOIN interested ON usertable.id = interested.user_id GROUP BY usertable.name";
 $result = $conn->query($sql);
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico" />
     <title>Project ΚαΠα</title>
-    <link rel="stylesheet" href="../styles/education.css"/>
+    <link rel="stylesheet" href="../styles/game.css"/>
     <link rel="stylesheet" href="../styles/navbar.css"/>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
@@ -34,13 +34,46 @@
         ?>
         </ul>
   </nav> 
+  
   <div class="container">
-      <div id="home" class="flex-center flex-column">
-        <h1>Quick Quiz</h1>
-        <p>Εδώ θα βρείτε ένα μικρό κουίζ, πυο αφορα 3ρ </p>
-        <a class="btn" href="./game.php">Play</a>
-        <a class="btn" href="/highscores.html">High Scores</a>
+      <div id="game" class="justify-center flex-column hidden">
+        <div id="hud">
+          <div id="hud-item">
+            <p id="progressText" class="hud-prefix">
+              Ερώτηση
+            </p>
+            <div id="progressBar">
+              <div id="progressBarFull"></div>
+            </div>
+          </div>
+          <div id="hud-item">
+            <p class="hud-prefix">
+              Σκορ
+            </p>
+            <h1 class="hud-main-text" id="score">
+              0
+            </h1>
+          </div>
+        </div>
+        <h2 id="question"></h2>
+        <div class="choice-container">
+          <p class="choice-prefix">1</p>
+          <p class="choice-text" data-number="1"></p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">2</p>
+          <p class="choice-text" data-number="2"></p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">3</p>
+          <p class="choice-text" data-number="3"></p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">4</p>
+          <p class="choice-text" data-number="4"></p>
+        </div>
       </div>
-  </div>
+    </div>
+  <script src="education.js"></script>
 </body>
 </html>

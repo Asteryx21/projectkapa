@@ -1,5 +1,27 @@
 per();
 GraphIt();
+modalControl();
+
+const picker = new tempusDominus.TempusDominus(document.getElementById('inputDate'), {
+    useCurrent: false,
+    display: {
+        viewMode: "calendar",
+        components: {
+            decades: false,
+            year: false,
+            month: true,
+            date: true,
+            hours: false,
+            minutes: false,
+            seconds: false
+        }
+    },
+    localization:{
+        locale: 'el'
+    }
+});
+
+picker.dates.formatInput = date => moment(date).format('YYYY-MM-DD')
 
 async function per(){
     const response = await fetch('participants.php');
@@ -83,4 +105,55 @@ async function GraphIt(){
     });
     // Render the chart
     myChart.update();
+}
+
+function modalControl(){
+
+    const modal = document.getElementById("exampleModal");
+    const btn = document.getElementById("addevent");
+    const cancelBtn = document.getElementById("cancel-btn");
+
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+
+    cancelBtn.onclick = function() {
+    modal.style.display = "none";
+    }
+
+ 
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
+}
+
+document.getElementById("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+
+    fetch("post_event.php", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        showSuccessMessage();
+    })
+    .catch(error => console.error(error));
+});
+
+function showSuccessMessage() {
+    const successMessage = document.querySelector('.alert-success');
+    successMessage.style.display = "block";
+    successMessage.textContent = "Το event έγινε upload!";
+    setTimeout(() => {
+        successMessage.style.opacity = "0";
+        successMessage.style.transition = "opacity 0.5s ease-out";
+        setTimeout(() => {
+            successMessage.style.display = "none";
+        }, 500);
+    }, 3000);
 }

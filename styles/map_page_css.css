@@ -57,16 +57,20 @@ html, body, #map{
   margin:0.8em !important;
 }
 /* <a href="https://www.flaticon.com/free-icons/layers" title="layers icons">Layers icons created by Freepik - Flaticon</a> */
+.button-state img{
+  padding: .3em;
+}
 
 /* TIPS MODAL + BUTTONS */
 #tips{
   background-color: white;
-  color:black;
+  color:rgb(42, 206, 78);
   border-radius: 1em;
+  border: none;
   z-index: 1;
   position:absolute;
-  right:0.2em;
-  bottom: 0.2em;
+  right: .2em;
+  bottom: .1rem;
   font-size: 4em;
   cursor:pointer;
 }
@@ -225,10 +229,41 @@ html, body, #map{
   background: rgb(28, 146, 54);
 }
 
+.fa-circle-question {
+  animation: hop 1s ease-in-out infinite;
+}
+
+.fa-circle-question.clicked {
+  animation: none;
+}
+
+@keyframes hop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
 /* RESPONSIVE  (min-width:858)*/
-@media (min-height:714px){
+@media screen and (max-height:564px){
   html, body, #map{
-    height: 96.7%;
+    height: 95% !important;
+  }
+}
+@media screen and (max-height:805px){
+  html, body, #map{
+    height: 96%;
+  }
+}
+@media (min-height:805px){
+  html, body, #map{
+    height: 96.8%;
   }
 }
 @media (min-height:859px){
@@ -276,11 +311,6 @@ html, body, #map{
       right:1em;
       left:1em;
   }
-
-  html, body, #map{
-    height: 96%;
-  }
-
   .center{
     right: 0em;
     width:90%;

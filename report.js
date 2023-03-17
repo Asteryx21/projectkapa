@@ -6,7 +6,7 @@ $(document).ready(function(){
                 var xhr = new window.XMLHttpRequest();
                 xhr.upload.addEventListener("progress", function(evt) {
                     if (evt.lengthComputable) {
-                        var percentComplete = ((evt.loaded / evt.total) * 100);
+                        var percentComplete = Math.floor((evt.loaded / evt.total) * 100); //nearest integer point.
                         $(".progress-bar").width(percentComplete + '%');
                         $(".progress-bar").html(percentComplete+'%');
                     }

@@ -4,7 +4,7 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
-    background-color: #d7f1f1;
+
 }
 body{
     background-color: #d7f1f1 !important;
@@ -20,7 +20,7 @@ body{
     background-color: rgb(42, 206, 78);
     color: black !important;
     border-radius: 1em;
-    padding: 0.5em;
+    padding: .5em;
     margin: 1em 0 0 0;
     font-size: 1.5em;
     font-weight: bold;
@@ -29,6 +29,21 @@ body{
 .box a:hover{
     color: black;
     text-decoration: none;
+}
+.box #addevent{
+    background: rgb(42, 206, 78);
+    cursor: pointer;
+    border: none;
+    border-radius: 1em;
+    padding: .5em;
+    margin: 1em 0 0 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.box #addevent:hover{
+    transition: .5s;
+    background: rgb(28, 165, 58);
 }
 .box{
     display: flex;
@@ -179,3 +194,24 @@ table td a:hover{
     }
 }
   
+/* ADD AN EVENT MODAL */
+
+.hidden{
+    display: none;
+}
+
+/* Modal Container */
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.form-group{
+    margin-top: 1em;
+}
+.tempus-dominus-widget{
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard syntax */
+}

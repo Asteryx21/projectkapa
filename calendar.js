@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, { 
         locale: 'el',
         initialView: 'dayGridMonth',
+        headerToolbar: {
+            start: 'title',
+            center: '',
+            end: 'prev,next'
+        },
         events: 'get_events.php',
         eventTimeFormat: { 
             hour: '2-digit',

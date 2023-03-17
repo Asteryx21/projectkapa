@@ -23,12 +23,12 @@ let markers = L.markerClusterGroup({
 //background tile set
 const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
- 
     attribution: '© OpenStreetMap'
 });
 const Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	maxZoom: 18,
-  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+  attribution: 'Tiles &copy; Esri '
+  //&mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community
 });
 
 const baseMaps = {
@@ -66,6 +66,58 @@ let layerControl= L.control.layers(baseMaps,overlayMaps, {position:'topleft'}).a
 
 
 L.control.locate({showPopup: false, drawMarker: false}).addTo(map);
+
+
+// Add a button to switch the layers
+const switchLayersButton = L.easyButton({
+  position: 'bottomleft',
+  states: [{
+    stateName: 'default-state',
+    icon: 'fa-solid fa-layer-group fa-4x',
+    title: 'Εναλλαγή υποβάθρου',
+    onClick: function(btn, map) {
+      if (map.hasLayer(osm)) {
+        map.removeLayer(osm);
+        Esri_WorldImagery.addTo(map);
+      } else {
+        map.removeLayer(Esri_WorldImagery);
+        osm.addTo(map);
+      }
+    }
+  }]
+}).addTo(map);
+
+const greenMarkers = L.easyButton({
+  position: 'topright',
+  states: [{
+    stateName: 'default-state',
+    icon: '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png">',
+    title: 'Δράσεις',
+    onClick: function(btn, map) {
+      if (map.hasLayer(groupA)) {
+        map.removeLayer(groupA);
+      } else {
+        groupA.addTo(map);
+      }
+    }
+  }]
+}).addTo(map);
+
+const redMarkers = L.easyButton({
+  position: 'topright',
+  states: [{
+    stateName: 'default-state',
+    icon: '<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png">',
+    title: 'Αναφερόμενες περιοχές',
+    onClick: function(btn, map) {
+      if (map.hasLayer(groupB)) {
+        map.removeLayer(groupB);
+      } else {
+        groupB.addTo(map);
+      }
+    }
+  }]
+}).addTo(map);
 
 getData();
 
@@ -216,7 +268,12 @@ $.getJSON('borders.json', function(borders) {
 });
 
 
+// make the "?" tips button stop jumping after clicked.
+const tipsbtn = document.querySelector('#tips');
 
+tipsbtn.addEventListener('click', () => {
+  tipsbtn.classList.add('clicked');
+});
 
 
 function Tips(){

@@ -1,173 +1,125 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+  /*background-color: #d7f1f1;*/
+}
+.container{
+margin: 4.5em 25em 0 25em;
+}
+.choice-container {
+  display: flex;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  font-size: 1.8rem;
+  border: 0.1rem solid rgb(86, 165, 235, 0.25);
+  background-color: white;
 }
 
-.score {
-  font-family: monospace;
+.choice-container:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.choice-prefix {
+  padding: 1.5rem 2.5rem;
+  background-color: rgb(42, 206, 78);
+  color: white;
+}
+
+.choice-text {
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.correct {
+  background-color: #62b976;
+}
+
+.incorrect {
+  background-color: #dc3545;
+}
+
+/* HUD */
+
+h2#question{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+#hud {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hud-prefix {
   text-align: center;
   font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 0.25rem;
-  margin: 1rem;
-  position: relative;
-  transition: opacity 0.2s;
 }
-#play-again-btn {
-  position: absolute;
-  top: -0.5rem;
-  left: 50%;
-  margin-left: -50px;
+
+.hud-main-text {
+  text-align: center;
+}
+
+#progressBar {
+  border-radius: .5em;
+  width: 20rem;
+  height: 4rem;
+  border: 0.3rem solid rgb(42, 206, 78);
+  margin-top: 1.5rem;
+}
+
+#progressBarFull {
+  height: 3.7rem;
+  background-color: rgb(42, 206, 78);
+  width: 0%;
+}
+
+
+@media screen and (max-width:1200px) {
+.container{
+margin: 5em 10em 0 10em;
+}
+}
+
+@media screen and (max-width:728px) {
+.container{
+margin: 5em 5em 0 5em;
+}
+}
+
+@media screen and (max-width:552px) {
+.container{
+margin: 2em 5em 0 0em;
+}
+}
+
+@media screen and (max-width:470px) {
+.container{
+  margin: 2em 0em 0 0em;
   font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: #111;
-	border: 5px double #fff; 
-	border-radius: 14px;
-	padding: 8px 10px;  
-  outline: none;
-  letter-spacing: .05em;
-  cursor: pointer;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s, transform 0.5s, background-color 0.2s;
-}
-#play-again-btn:hover {
-  background-color: #333;
-}
-#play-again-btn:active {
-  background-color: #555;
-}
-#play-again-btn.play-again-btn-entrance {
-  opacity: 1;
-  transform: translateX(6rem);
 }
 
-/* Game-Box */
-.bag{ 
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  margin-left:auto;
-  margin-right: auto;
-  /*margin-top: 1.5em; */
-  width: 80%;
-  height: 40em;
-  border-radius: 5em;
-  border: 3px solid #32cdb9;
+.choice-container{
+  font-size: 1rem;
+  width: 100%;
 }
-.bag img{
-
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%
+.hud-prefix{
+  font-size: 1.2rem;
 }
-
-
-/* Draggable items */
-.draggable {
-  position: absolute;
-  cursor: move;
-  transition: opacity 0.2s;
+h2,h1{
+  font-size: 1.2rem;
 }
-.draggable img{
-  
-  height: auto;
-  width: 4em;
+#progressBar{
+  width:10rem;
+  height:2rem;
 }
-.draggable2 img{
-  height: auto;
-  width: 3em;
-}
-.draggable3 img{
-  height: auto;
-  width: 2em;
+#progressBarFull{
+  width:10rem;
+  height:1.7rem;
 }
 
-.draggable1 {
-  bottom: 0.5em;
-  right:10em;
-}
-.draggable2 {
-  bottom: 7em;
-  right:15em;
-}
-.draggable3 {
-  bottom: 0.5em;
-  right:21em;
-}
-.draggable4 {
-  bottom: 0.5em;
-  right:30em;
-}
-.draggable5 {
-  bottom: 0.5em;
-  right:40em;
-}
-.draggable6 {
-  bottom: 1em;
-  right:50em;
-}
-.draggable7 {
-  bottom: 1em;
-  right:60em;
-}
-
-.draggable:hover {
-  cursor: pointer;
-  opacity: 0.5;
-}
-
-
-/* Droppable items */
-.droppable {
-  position: absolute;
-}
-
-.droppable1 {
-  top: 20rem;
-  left: 1rem;
-}
-
-.droppable2 {
-  top: 20rem;
-  left: 10rem;
-}
-.droppable3 {
-  top: 20rem;
-  left: 19rem;
-}
-.droppable4 {
-  top: 20rem;
-  left: 28rem;
-}
-
-
-
-/* Drag and Drop Related Styling */
-
-.droppable-hover {
-  transform: scale(1.1);
-}
-
-.dragged {
-  user-select: none;
-  opacity: 0;
-  cursor: default;
-}
-.draggable.dragged:hover {
-  opacity: 0.1;
-}
-
-.reseted{
-  opacity: 1;
-}
-
-
-@media(min-width:1605px) and (max-width:2999px){
-  .bag{
-    background-size: cover;
-    width: auto;
-  }
 }

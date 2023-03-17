@@ -78,6 +78,8 @@ h1.temp {
     border: 1px solid #ddd;
     border-radius: 15px;
     z-index: 2;
+    overflow: hidden;
+    overflow-y:scroll;
 }
   
 .modal .flex {
