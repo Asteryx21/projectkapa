@@ -34,13 +34,24 @@
         ?>
         </ul>
   </nav> 
-  <div class="container">
-      <div id="home" class="flex-center flex-column">
-        <h1>Quick Quiz</h1>
-        <p>Εδώ θα βρείτε ένα μικρό κουίζ, πυο αφορα 3ρ </p>
+    <div class="video-background">
+    <div class="video-overlay"></div>
+    <video autoplay muted loop>
+        <source src="../imgs/movie.mp4" type="video/mp4">
+    </video>
+    <div class="content-box">
+        <h1>Quiz νοοτροπίας ανακύκλωσης, μείωσης απορριμμάτων και επαναχρησιμοποίησης!</h1>
+        <p>
+        Αυτό το παιχνίδι αποτελείται από 10 ερωτήσεις πολλαπλής επιλογής που θα δοκιμάσουν τις γνώσεις σας για το πώς να ζήσετε έναν πιο βιώσιμο τρόπο ζωής. 
+        Κάθε σωστή απάντηση αξίζει 10 βαθμούς και δεν υπάρχουν κυρώσεις για λανθασμένες απαντήσεις. 
+        Το παιχνίδι θα τελειώσει μόλις απαντηθούν και οι 10 ερωτήσεις.
+
+        Ετοιμαστείτε να μάθετε περισσότερα για το πώς μπορείτε να έχετε θετικό αντίκτυπο στο περιβάλλον μέσω μικρών αλλά σημαντικών ενεργειών.
+        </p>
         <a class="btn" href="./game.php">Play</a>
-        <a class="btn" href="/highscores.html">High Scores</a>
-      </div>
-  </div>
+        
+    </div>
+    </div>
+
 </body>
 </html>

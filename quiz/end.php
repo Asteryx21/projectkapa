@@ -11,13 +11,13 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container">
-      <div id="end" class="flex-center flex-column">
-        <h1 id="finalScore"></h1>
-        <a class="btn" href="./education.php">Παίξε ξανά</a>
-        <a class="btn" href="../index.php">Πίσω στη σελίδα</a>
-      </div>
+  <div class="container">
+    <div id="end" class="flex-center flex-column">
+      <h1 id="finalScore"></h1>
+      <a class="btn" href="./education.php">Παίξε ξανά</a>
+      <a class="btn" href="../index.php">Πίσω στη σελίδα</a>
     </div>
+  </div>
 <script src="end.js"></script>
 </body>
 </html>

@@ -42,19 +42,22 @@ html, body, #map{
 }
 
 .leaflet-control-layers-toggle {
-  width: 3em !important;
-  height: 3em !important;
-  /* background-image: url('../imgs/layers.png') !important;
-  background-color: transparent !important;
+  width: 5em !important;
+  height: 5em !important;
+  background-size: 50px 50px !important;
+ /* background-image:'fa-solid fa-layer-group fa-4x' !important;
+   background-color: transparent !important;
   width: 5em !important;
   height: 5em !important;  */
 }
 .leaflet-touch .leaflet-bar a{
-  width: 3em !important;
-  height: 3em !important;
+  width: 5em !important;
+  height: 5em !important;
 }
 .leaflet-control-locate a .leaflet-control-locate-location-arrow{
-  margin:0.8em !important;
+  margin:1.2em !important;
+  width: 30px !important;
+  height: 30px !important;
 }
 /* <a href="https://www.flaticon.com/free-icons/layers" title="layers icons">Layers icons created by Freepik - Flaticon</a> */
 .button-state img{

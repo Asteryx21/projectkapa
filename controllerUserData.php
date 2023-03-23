@@ -42,16 +42,16 @@ if(isset($_POST['signup'])){
             
             $subject = "Email Verification Code";
             $message = "Your verification code is $code";
-            $sender = "From: contact@projectkapa.gr";
+            $sender = "From: projectkapatest@gmail.com";
             $mail = new PHPMailer(true);    
             $mail->isSMTP();
             $mail->Host = $_ENV['MAIL_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username="contact@projectkapa.gr";
+            $mail->Username=$_ENV['E_MAIL'];
             $mail->Password=$_ENV['MAIL_PASSWORD'];
             $mail->SMTPSecure='ssl';
             $mail->Port='465';
-            $mail->setFrom('contact@projectkapa.gr');
+            $mail->setFrom($_ENV['E_MAIL']);
             $mail->addAddress($email);
             $mail->isHTML(true);
             $mail->Subject = $subject;
@@ -139,16 +139,16 @@ if(isset($_POST['signup'])){
             if($run_query){
                 $subject = "Password Reset Code";
                 $message = "Your password reset code is $code";
-                $sender = "From: contact@projectkapa.gr";
+                $sender = "From: projectkapatest@gmail.com";
                 $mail = new PHPMailer(true);    
                 $mail->isSMTP();
                 $mail->Host = $_ENV['MAIL_HOST'];
                 $mail->SMTPAuth = true;
-                $mail->Username="contact@projectkapa.gr";
+                $mail->Username=$_ENV['E_MAIL'];
                 $mail->Password=$_ENV['MAIL_PASSWORD'];
                 $mail->SMTPSecure='ssl';
                 $mail->Port='465';
-                $mail->setFrom('contact@projectkapa.gr');
+                $mail->setFrom($_ENV['E_MAIL']);
                 $mail->addAddress($email);
                 $mail->isHTML(true);
                 $mail->Subject = $subject;

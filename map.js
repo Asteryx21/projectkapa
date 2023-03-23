@@ -62,30 +62,31 @@ let layerGroup = L.layerGroup().addTo(map);
 map.addLayer(markers);
 const overlayMaps = {
     };
-let layerControl= L.control.layers(baseMaps,overlayMaps, {position:'topleft'}).addTo(map);
+
+let layerControl= L.control.layers(baseMaps,overlayMaps, {position:'bottomleft'}).addTo(map);
 
 
 L.control.locate({showPopup: false, drawMarker: false}).addTo(map);
 
 
 // Add a button to switch the layers
-const switchLayersButton = L.easyButton({
-  position: 'bottomleft',
-  states: [{
-    stateName: 'default-state',
-    icon: 'fa-solid fa-layer-group fa-4x',
-    title: 'Εναλλαγή υποβάθρου',
-    onClick: function(btn, map) {
-      if (map.hasLayer(osm)) {
-        map.removeLayer(osm);
-        Esri_WorldImagery.addTo(map);
-      } else {
-        map.removeLayer(Esri_WorldImagery);
-        osm.addTo(map);
-      }
-    }
-  }]
-}).addTo(map);
+// const switchLayersButton = L.easyButton({
+//   position: 'bottomleft',
+//   states: [{
+//     stateName: 'default-state',
+//     icon: 'fa-solid fa-layer-group fa-4x',
+//     title: 'Εναλλαγή υποβάθρου',
+//     onClick: function(btn, map) {
+//       if (map.hasLayer(osm)) {
+//         map.removeLayer(osm);
+//         Esri_WorldImagery.addTo(map);
+//       } else {
+//         map.removeLayer(Esri_WorldImagery);
+//         osm.addTo(map);
+//       }
+//     }
+//   }]
+// }).addTo(map);
 
 const greenMarkers = L.easyButton({
   position: 'topright',
@@ -166,9 +167,10 @@ async function getData(){
     //Creating layer group
     groupA.addTo(layerGroup);
     groupB.addTo(layerGroup);
-    //Control on the Top Left that handles the switching between A and B 
-    layerControl.addOverlay(groupA, "Δράσεις" );
-    layerControl.addOverlay(groupB, "Αναφερόμενες περιοχές" );
+    // //Control on the Top Left that handles the switching between A and B 
+    // layerControl.addOverlay(groupA, "Δράσεις" );
+    // layerControl.addOverlay(groupB, "Αναφερόμενες περιοχές" );
+
 }
 
 const elem = document.createElement("img");

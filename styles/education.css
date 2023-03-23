@@ -7,7 +7,7 @@
 }
 /* UTILITIES */
 
-.container {
+/* .container {
 
 display: flex;
 justify-content: center;
@@ -21,11 +21,24 @@ padding: 2rem;
 width: 100%;
 }
 
+
 .flex-column {
 display: flex;
 flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
 }
-
+.flex-column h1{
+  margin-left: 10em;
+  margin-right: 10em;
+}
+.flex-column p {
+  margin-top: 5em;
+  margin-left: 21em;
+  margin-right: 21em;
+  margin-bottom: 5em;
+}
 .flex-center {
 justify-content: center;
 align-items: center;
@@ -41,6 +54,83 @@ text-align: center;
 
 .hidden {
 display: none;
+} */
+
+
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.content-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.content-box h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.content-box p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.content-box a {
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid white;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.content-box a:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+@media screen and (max-width:506px) {
+  .content-box h1 {
+    font-size: 2rem;
+  }
+  .content-box p {
+    font-size: 1rem;
+  }
 }
 
 /* BUTTONS */
@@ -49,10 +139,10 @@ font-size: 1.8rem;
 padding: 1rem 0;
 width: 20rem;
 text-align: center;
-border: 0.1rem solid #56a5eb;
+border: 0.1rem solid black;
 margin-bottom: 1rem;
 text-decoration: none;
-color: #56a5eb;
+color: black;
 background-color: white;
 }
 

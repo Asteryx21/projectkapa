@@ -124,7 +124,7 @@ $draseis = mysqli_query($conn, "SELECT * FROM draseis");
     <?php } ?>
     <div class="overlay hidden"></div>
     <section class='accordion'>
-        <h1>Συμβουλές για τους ενδιαφερομενους εθελοντες!</h1>
+        <h1>Συμβουλες για τους εθελοντες</h1>
         <ul>
             <li>
                 <input type="checkbox" checked class='abc'>
